@@ -1,39 +1,32 @@
-# PROJETO CONSTRUÇÃO DE UM ECOSSISTEMA DE BIG DATA NA NUVEM AWS
+# PROJECT BUILDING A BIG DATA ECOSYSTEM IN THE AWS CLOUD
 
-Projeto desenvolvido durante o Bootcamp Cognizant Cloud Data Engineer na plataforma Digital Innovation One 
-com o objetivo de extrair e contabilizar palavras de um livro no formato de texto plano, exibindo a palavra de maior frequência, por meio de um algoritmo python.
+- Project developed during the Cognizant Cloud Data Engineer Bootcamp on the Digital Innovation One platform with the objective of extracting and counting words from a book in plain text format, displaying the most frequent word, through a python algorithm.
 
-O algoritmo foi desenvolvido utilizando a biblioteca MRJOB e MRSTEPS para criar mapreduce jobs. Esse código é responsável por criar o cluster no 
-serviço Elastic MapReduce (EMR), utilizando o conceito de infraestrutura como código, sem a necessidade de criar manualmente o cluster pelo console da AWS.
-O EMR é responsável pelo processamento dos dados do livro fornecido (dados de entrada), armazenando as palavras contabilizadas (dados de saída) no S3.
+- The algorithm was developed using the MRJOB and MRSTEPS library to create mapreduce jobs. This code is responsible for creating the cluster in the Elastic MapReduce (EMR) service, using the concept of infrastructure as code, without the need to manually create the cluster through the AWS console. The EMR is responsible for processing the given book data (input data), storing the counted words (output data) in S3.
 
+## Project steps
 
-## Etapas do projeto
+- Create a datalake (bucket) structure in the S3 datastore service
 
-* Criar uma estrutura de datalake (bucket) no serviço de armazenamento de dados S3
-    * Dentro do bucket, criar as estruturas de pasta abaixo:
-        _data_
-        _output_
-        _temp_
- 
-* Criar chave SSH pelo console do EC2 e fazer download do arquivo .pem
-    * As chaves SSH são para permitir o acesso remoto da minha máquina ao sistema da AWS
-  
-* Obter Id e chave secreta AWS para configurar o MrJob
-  
-* Criar um ambiente virtual python em uma máquina virtual linux
-   * Criar um ambiente virtual python
+- Inside the bucket, create the folder structures below: data output temp
+Create SSH key from EC2 console and download .pem file
 
-* No ambiente virtual python: 
-   * Criar algoritmo de análise de palavras dio-aws-mostcommon-word.py no VS CODE
-   * Instalar boto3: pip install boto3
-   * Instalar mrjob: pip install mrjob
-   * Configurar o arquivo .mrjob.conf localizado na pasta /etc
+- SSH keys are to allow remote access from my machine to the AWS system
+Get AWS Secret Id and Key to Configure MrJob
 
-* Acessar o S3 e fazer o upload de arquivo para o bucket 
+- Create a python virtual environment on a linux virtual machine
 
-* No ambiente virtual python, rodar comando no terminal linux da VM para o python executar o algoritmo e fazer a criação do cluster no EMR, processar os dados e armazenar os dados de saída no S3 nas pastas apropriadas 
-  
-* Acessar EMR e verificar o cluster criado 
-   
-* Acessar o S3 e verificar os dados gerados nas pastas
+- Create a python virtual environment
+In the python virtual environment:
+
+- Create dio-aws-mostcommon-word.py word parsing algorithm in VS CODE
+Install boto3: pip install boto3
+Install mrjob: pip install mrjob
+Configure the .mrjob.conf file located in the /etc folder
+Access S3 and Upload File to Bucket
+
+- In the python virtual environment, run a command in the VM's linux terminal for python to run the algorithm and create the cluster in EMR, process the data and store the output data in S3 in the appropriate folders
+
+Access EMR and verify the cluster created
+
+Access S3 and check the generated data in the folders
